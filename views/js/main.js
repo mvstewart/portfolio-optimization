@@ -453,8 +453,8 @@ var resizePizzas = function(size) {
   // UPDATED: moved querySelectorAll out of the loop
   function changePizzaSizes(size) {
     var rPC = document.getElementsByClassName("randomPizzaContainer");
-    var dx = determineDx(rPC, size);
-    var newwidth = (rPC.offsetWidth + dx) + 'px';
+    var dx = determineDx(rPC[0], size);
+    var newwidth = (rPC[0].offsetWidth + dx) + 'px';
     for (var i = 0; i <rPC.length; i++) {
       rPC[i].style.width = newwidth;
     }
