@@ -511,10 +511,16 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
+  var phaseArray = [];
+  var verticalSize = document.body.scrollTop;
+  // For-loops to calculate and then update positions for pizzas placement in the background 
+  for (var i = 0; i < 5; i++) {
+    phaseArray.push(Math.sin((verticalSize / 1250) + i));
+  }
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    var phase = phaseArray[i % 5];
+    items[i].style.transform = 'translateX(' + 100 * phase + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
