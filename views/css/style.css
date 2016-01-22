@@ -29,12 +29,13 @@ form {
   font-weight: 800;
 }
 
-// Hide backface-visibility
+// Add transform to move each element into its own composite layer
 .mover {
   position: fixed;
   width: 256px;
   z-index: -1;
-  backface-visibility: hidden;
+  transform: translateZ(0);
+  transform: translate3d(0,0,0);
 }
 
 .randomPizzaContainer {
