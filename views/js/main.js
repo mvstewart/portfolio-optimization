@@ -516,7 +516,7 @@ function updatePositions() {
   // For-loops to calculate and then update positions for pizzas placement in the background 
 
   for (var i = 0; i < items.length; i++) {
-    var phase = (Math.sin(scrollDivided + (i % 5));
+    var phase = Math.sin(scrollDivided + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
