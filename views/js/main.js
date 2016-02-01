@@ -452,7 +452,7 @@ var resizePizzas = function(size) {
   function changePizzaSizes(size) {
     var newSize;
     var pizzaContainer = document.getElementsByClassName("randomPizzaContainer");
-    // Changes the slider value to a percent width
+    // Changes the slider value to a percent width one time, instead of calling the function within the for-loop below
       switch(size) {
         case "1":
           newSize = 0.25;
@@ -466,9 +466,9 @@ var resizePizzas = function(size) {
         default:
           console.log("bug in sizeSwitcher");
       }
-    
+    // Optimized for-loop to change pizza sizes
     for (var i = 0; i < pizzaContainer.length; i++) {
-      pizzaContainer[i].style.width = newSize;
+      pizzaContainer[i].style.width = newSize * 100 + '%';
     }
   }
 
