@@ -2,6 +2,21 @@
 
 I accepted the challenge to optimize this online portfolio for speed! In particular, I optimized the critical rendering path and made this page render as quickly as possible by applying the techniques I've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
+How to get started:
+
+Check out the repository
+To inspect the site on your phone, you can run a local server
+
+$> cd /path/to/your-project-folder
+$> python -m SimpleHTTPServer 8080
+Open a browser and visit localhost:8080
+
+Download and install ngrok to make your local server accessible remotely.
+
+$> cd /path/to/your-project-folder
+$> ngrok http 8080
+Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: More on integrating ngrok, Grunt and PageSpeed.
+
 ####Part 1: Optimized PageSpeed Insights score for index.html
 
 - Mobile speed 93/100
