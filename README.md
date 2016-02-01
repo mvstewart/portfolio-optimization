@@ -1,17 +1,22 @@
 ## Website Performance Optimization portfolio project
 
-I accepted a challenge to optimize this online portfolio for speed! In particular, I optimized the critical rendering path and made this page render as quickly as possible by applying the techniques I've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
-
-### I'm still working on this project! *Part 1 is mostly done!*
+I accepted the challenge to optimize this online portfolio for speed! In particular, I optimized the critical rendering path and made this page render as quickly as possible by applying the techniques I've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 ####Part 1: Optimized PageSpeed Insights score for index.html
 
 - Mobile speed 93/100
 - Desktop speed 94/100
 
+To optimize the website speed even more:
+- Compress (losslessly) profile picture and pizza image;
+- Set browser caching.
+
 ####Part 2: Optimize Frames per Second in pizza.html
 
-I will modify views/js/main.js until the frames per second rate is 60 fps or higher. I will use instructive comments in main.js. 
+I modifed views/js/main.js until the frames per second rate is 60 fps or higher. In particular, I modified the following:
+- function changePizzaSizes(size): the for-loop is leaner, and the pizza size now changes within the function;
+- function updatePositions(): the for-loop is running faster since I moved the repetitive code out (scrollDivided);
+- used more specific "getElementsByClassName()" instead of non-specific "querySelectorAll()".
 
 I used the FPS Counter/HUD Display in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
