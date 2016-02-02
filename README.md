@@ -43,11 +43,22 @@ I accepted a challenge to optimize this online portfolio for speed! In particula
 - Mobile speed 93/100
 - Desktop speed 94/100
 
+To optimize the website speed even more:
+- Compress (losslessly) profile picture and pizza image;
+- Set browser caching.
+
 ####Part 2: Optimize Frames per Second in pizza.html
 
-I will modify views/js/main.js until the frames per second rate is 60 fps or higher. I will use instructive comments in main.js. 
+I modifed views/js/main.js until the frames per second rate is 60 fps or higher. In particular, I modified the following:
+- function changePizzaSizes(size): the for-loop is leaner, and the pizza size now changes within the function;
+- function updatePositions(): the for-loop is running faster since I moved the repetitive code out (scrollDivided);
+- used more specific "getElementsByClassName()" instead of non-specific "querySelectorAll()".
 
 I used the FPS Counter/HUD Display in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+
+
+####Part 3: Grunt
+I have created package.json file and ran grunt to minimize views/js/main.js and views/css/style.css and views/css/bootstrap-grid.css
 
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
