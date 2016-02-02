@@ -1,6 +1,6 @@
 ## Website Performance Optimization portfolio project
 
-I accepted a challenge to optimize this online portfolio for speed! In particular, I optimized the critical rendering path and made this page render as quickly as possible by applying the techniques I've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+I accepted the challenge to optimize this online portfolio for speed! In particular, I optimized the critical rendering path and made this page render as quickly as possible by applying the techniques I've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 #### I'm still working on this project!
 
