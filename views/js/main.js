@@ -532,7 +532,7 @@ function updatePositions() {
     // Assign phase results by pulling from the array created in the new for-loop above
     var phase = phaseArray[i % 5];
     // Use transform to avoid jank
-    items[i].style.tranform = 'translateX(' + 100 * phase + 'px)';
+    items[i].style.transform = 'translateX(' + 100 * phase + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
