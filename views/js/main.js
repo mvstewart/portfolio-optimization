@@ -521,25 +521,13 @@ function updatePositions() {
   var items = document.getElementsByClassName('mover');
   // Move scrollTop calculations out of the for-loop
   var scrollDivided = document.body.scrollTop / 1250;
-  // Move calculations to a separate short for-loop to reduce the amount of repetitive code
-  // since [i % 5] will always be 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, etc.
-  // Create an array to store the phase calculations
-  var phaseArray = [];
-  for (var i = 0; i < 5; i++) {
-    phaseArray.push(Math.sin(scrollDivided + i));
-  }
-  // Create an array to store basicLeft calculations
-  var leftArray = [];
-  for (var i = 0; i < 8; i++) {
-    leftArray.push(i * 256);
-  }
-  for (var i = 0; i < items.length; i++) {
-    // Assign phase results by pulling from the array created in the new for-loop above
-    var phase = phaseArray[i % 5];
-    // Assign basicLeft results by pulling from the new for-loop above
-    var leftSingle = leftArray[i % 8];
-    // Transform doesn't work properly
-    items[i].style.transform = 'TranslateX(' - leftSingle + 1000 * phase + 'px)';
+
+   // Loop in reverse to improve performance -- by mikejoyceio
+  for (var i = items.length; i--;) {
+    var phase = Math.sin( scrollDivided + (i % 5));
+    //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    var left = -items[i].basicLeft + 1000 * phase + 'px';
+ 		items[i].style.transform = "translateX("+left+") translateZ(0)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
