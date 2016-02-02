@@ -539,7 +539,7 @@ function updatePositions() {
     // Assign basicLeft results by pulling from the new for-loop above
     var leftSingle = leftArray[i % 8];
     // Transform doesn't work properly
-    items[i].style.transform = 'TranslateX(' + leftSingle + 1000 * phase + 'px)';
+    items[i].style.transform = 'TranslateX(' - leftSingle + 1000 * phase + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
