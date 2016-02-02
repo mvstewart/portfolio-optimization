@@ -6,19 +6,19 @@ I accepted a challenge to optimize this online portfolio for speed! In particula
 
 ## How to get started:
 
-### Instruction for installing grunt packages using NPM:
+#### Instruction for installing grunt packages using NPM:
 - Open command line, proceed to the folder with the project and run "npm install". It will automatically install all needed grunt packages.
 
-### Instructions for running grunt tasks:
+#### Instructions for running grunt tasks:
 - Open command line (or terminal), proceed to the folder with the project and type "grunt". The default tasks of uglify and css-minify will run automatically.
 
-### Instructions for serving the app:
+#### Instructions for serving the app:
 - Simply open the index.html file in any modern browser, like Chrome or Safari. You can optionally run a local server - instructions below.
 
-### Instructions for checking page speed score:
+#### Instructions for checking page speed score:
 - To check the speed of the homepage, go to Pagespeed Insights and follow the instructions there.
 
-### Optional: run a local server
+#### Optional: run a local server
 1. Check out the repository
 1. To inspect the site on your phone, you can run a local server
 
