@@ -536,6 +536,7 @@ function updatePositions() {
   for (var i = 0; i < items.length; i++) {
     // Assign phase results by pulling from the array created in the new for-loop above
     var phase = phaseArray[i % 5];
+    // Assign basicLeft results by pulling from the new for-loop above
     var leftSingle = leftArray[i % 8];
     // Transform doesn't work properly
     items[i].style.left = leftArray + 100 * phase + 'px';
