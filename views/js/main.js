@@ -521,8 +521,16 @@ function updatePositions() {
   var items = document.getElementsByClassName('mover');
   // Move scrollTop calculations out of the for-loop
   var scrollDivided = document.body.scrollTop / 1250;
+  // Move calculations to a separate short for-loop to reduce the amount of repetitive code
+  // since [i % 5] will always be 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, etc.
+  // Create an array to store the calculations
+  var phaseArray = [];
+  for (var i = 0; i < 5; i++) {
+    phaseArray.push(Math.sin(scrollDivided + i));
+  }
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(scrollDivided + (i % 5));
+    // Assign phase results by pulling from the array created in the new for-loop above
+    var phase = phaseArray[i % 5];
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
