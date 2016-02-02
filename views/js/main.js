@@ -541,13 +541,12 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  // Move unnecessary for the loop items out of the for-loop
-  var elem = document.createElement('img');
-  elem.className = 'mover';
-  elem.src = "images/pizza.png";
-  elem.style.height = "100px";
-  elem.style.width = "73.333px";  
   for (var i = 0; i < 200; i++) {
+    var elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px"; 
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     // Switch querySelector to getElementById
