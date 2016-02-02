@@ -523,16 +523,22 @@ function updatePositions() {
   var scrollDivided = document.body.scrollTop / 1250;
   // Move calculations to a separate short for-loop to reduce the amount of repetitive code
   // since [i % 5] will always be 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, etc.
-  // Create an array to store the calculations
+  // Create an array to store the phase calculations
   var phaseArray = [];
   for (var i = 0; i < 5; i++) {
     phaseArray.push(Math.sin(scrollDivided + i));
   }
+  // Create an array to store basicLeft calculations
+  var leftArray = [];
+  for (var i = 0; i < 8; i++) {
+    leftArray.push(i * 256);
+  }
   for (var i = 0; i < items.length; i++) {
     // Assign phase results by pulling from the array created in the new for-loop above
     var phase = phaseArray[i % 5];
+    var leftSingle = leftArray[i % 8];
     // Transform doesn't work properly
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.left = leftArray + 100 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
