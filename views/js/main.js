@@ -485,7 +485,8 @@ window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 var pizzasDiv = document.getElementById("randomPizzas");
-for (var i = 2; i < 100; i++) {
+// Reduce the number of generated pizzas from 200 to 30
+for (var i = 2; i < 30; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -518,6 +519,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.getElementsByClassName('mover');
+  // Move scrollTop calculations out of the for-loop
   var scrollDivided = document.body.scrollTop / 1250;
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(scrollDivided + (i % 5));
