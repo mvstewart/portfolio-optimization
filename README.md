@@ -50,9 +50,13 @@ To optimize the website speed even more:
 ####Part 2: Optimize Frames per Second in pizza.html
 
 I modifed views/js/main.js until the frames per second rate is 60 fps or higher. In particular, I modified the following:
-- function changePizzaSizes(size): the for-loop is leaner, and the pizza size now changes within the function;
-- function updatePositions(): the for-loop is running faster since I moved the repetitive code out (scrollDivided);
+- function changePizzaSizes(size): optimized for-loop by taking calculation for array length and phase declaration out of the loop condition; removed call for determinDx() in the for-loop; added switch(size) inside the changePizzaSizes;
+- function updatePositions(): the for-loop is running faster since I moved the repetitive code out (scrollDivided), and declared phase outside of the for-loop to prevent it from being created every time the loop runs (that loop now runs in reverse too); changed style.left to style.transform to prevent jank with layout recalc;
 - used more specific "getElementsByClassName()" instead of non-specific "querySelectorAll()".
+- enabled hardware accelaration in style.css by setting backface-visibility as hidden and adding transform: translateZ(0);
+- changed the max for i from 200 to 100 in the for-loop actually creates and appends all of the pizzas when the page loads;
+- changed basicLeft to style.left and added (+ 'px') in the sliding pizzas generation event listener function for the proper functioning of style.transform in the updatePositions();
+- reduced the number of generated sliding pizzas from 200 to 30, since at any time it displays only 30 pizzas.
 
 I used the FPS Counter/HUD Display in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
