@@ -56,7 +56,8 @@ I modifed views/js/main.js until the frames per second rate is 60 fps or higher.
 - enabled hardware accelaration in style.css by setting backface-visibility as hidden and adding transform: translateZ(0);
 - changed the max for i from 200 to 100 in the for-loop actually creates and appends all of the pizzas when the page loads;
 - changed basicLeft to style.left and added (+ 'px') in the sliding pizzas generation event listener function for the proper functioning of style.transform in the updatePositions();
-- reduced the number of generated sliding pizzas from 200 to 30, since at any time it displays only 30 pizzas.
+- reduced the number of generated sliding pizzas from 200 to 30, since at any time it displays only 30 pizzas;
+- added requestAnimationFrame to the scrolling event listener.
 
 I used the FPS Counter/HUD Display in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
