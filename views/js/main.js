@@ -556,9 +556,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   // Moved the elem variable declaration (var elem;) outside the loop to prevent it from being created every time the loop is executed.
-  var elem = document.createElement('img');
+  var elem;
+  // Moved the DOM element outside of the for-loop and changed querySelector to getElementById to make faster calls and less unnecessary repetition in the for-loop.
+  var movingPizzas = document.getElementById("movingPizzas1");
   // Reduces the number of generated pizzas from 200 to 30
   for (var i = 0; i < 30; i++) {
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
@@ -566,7 +569,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Changed basicLeft to style.left and added (+ 'px') for the proper functioning of style.transform in the updatePositions()
     elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas.appendChild(elem);
   }
   updatePositions();
 });
