@@ -489,8 +489,8 @@ window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 var pizzasDiv = document.getElementById("randomPizzas");
-
-for (var i = 2; i < 200; i++) {
+// Changed the max for i from 200 to 100
+for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -523,15 +523,16 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.getElementsByClassName('mover');
-  // Move scrollTop calculations out of the for-loop
+  // Moved scrollTop calculations out of the for-loop
   var scrollDivided = document.body.scrollTop / 1250;
-
+  // Declared phase outside of the for-loop to prevent it from being created every time the loop runs
+  var phase;
    // Loop in reverse to improve performance -- by mikejoyceio
   for (var i = items.length; i--;) {
-    var phase = Math.sin( scrollDivided + (i % 5));
+    phase = Math.sin( scrollDivided + (i % 5));
+    // Changed style.left to style.transform to prevent jank with layout recalc
     //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    var left = -items[i].basicLeft + 1000 * phase + 'px';
- 		items[i].style.transform = "translateX("+left+") translateZ(0)";
+    items[i].style.transform = 'translateX(' + 100 * phase +'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -561,7 +562,8 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
+    // Added (+ 'px') for the proper functioning of style.transform in the updatePositions()
+    elem.basicLeft = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
