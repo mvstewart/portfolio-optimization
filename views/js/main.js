@@ -470,7 +470,7 @@ var resizePizzas = function(size) {
       }
     // Optimized for-loop by taking array length out of the loop condition and doing the calculations for new size outside of the loop
     var pizzaContainer = document.getElementsByClassName("randomPizzaContainer");
-    var pizzaContainerLength = pizzaContainer.length
+    var pizzaContainerLength = pizzaContainer.length;
     for (var i = 0; i < pizzaContainerLength; i++) {
       pizzaContainer[i].style.width = newSize * 100 + '%';
     }
@@ -555,9 +555,10 @@ window.addEventListener('scroll', function() {
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  // Moved the elem variable declaration (var elem;) outside the loop to prevent it from being created every time the loop is executed.
+  var elem = document.createElement('img');
   // Reduces the number of generated pizzas from 200 to 30
   for (var i = 0; i < 30; i++) {
-    var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
